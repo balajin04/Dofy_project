@@ -1,0 +1,46 @@
+package testBase;
+
+import java.time.Duration;
+
+import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
+public class BaseClass {
+
+public WebDriver driver;
+	
+	@BeforeClass
+	public void setup() 
+	{
+		 System.setProperty("WebDriver.Chrome.Driver","C:\\\\Local D\\\\chrome.exe");
+		 driver = new ChromeDriver();
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		 driver.get("http://beyondtherapydev.inventsoftlabs.com/authentication/signin");
+		
+	}
+	
+	@AfterClass
+	public void tearDown() 
+	{
+		driver.quit();
+	}
+	
+	public String randomString() 
+	{
+		String generateString = RandomStringUtils.randomAlphabetic(10);
+		return (generateString);
+	}
+	public String randomNumber() {
+		String generateString2 = RandomStringUtils.randomNumeric(10);
+		return (generateString2);
+	}
+	public String randomAlphaNumeric() {
+		String s = RandomStringUtils.randomAlphabetic(6);
+		String N= RandomStringUtils.randomNumeric(10);
+		return (s+N);
+	}
+	
+}

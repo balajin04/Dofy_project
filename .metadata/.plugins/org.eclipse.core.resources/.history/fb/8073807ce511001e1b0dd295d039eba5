@@ -1,0 +1,19 @@
+package Test_cases_dofy;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+
+
+@Test
+public class Globalsearchdofy extends Dofy_BaseClass{
+
+	public static void main(String[] args) {
+		WebElement globalsearch= driver.findElement(By.xpath("//input[@id='globalSearch-input']"));
+		globalsearch.sendKeys("Apple Iphone 11");	
+	
+		
+	}
+
+}

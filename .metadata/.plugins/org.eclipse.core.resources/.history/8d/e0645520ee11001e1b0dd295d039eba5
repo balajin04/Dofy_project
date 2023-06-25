@@ -1,0 +1,59 @@
+package Test_cases_dofy;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Homepage {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		// ---- Opening the chrome browser...
+		System.setProperty("driver.chrome.driver", "C:\\Local D\\chromedriver_win32.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		// ---Opening the Url...
+		driver.get("http://dofy.inventsoftlabs.in/in_en/");
+		driver.navigate().refresh();
+
+		/*
+		 * //---- Aboutus button WebElement aboutus =
+		 * driver.findElement(By.xpath("//ion-text[normalize-space()='ABOUT US']"));
+		 * aboutus.click();
+		 * 
+		 * WebElement joinusbtn = driver.findElement(By.
+		 * xpath("//ion-button[@class='ab_btn ion-color ion-color-white md button button-solid ion-activatable ion-focusable']"
+		 * )); joinusbtn.click();
+		 * 
+		 * 
+		 * 
+		 * 
+		 * WebElement locpopup= driver.findElement(By.
+		 * xpath("//ion-label[@class='header-location sc-ion-label-md-h sc-ion-label-md-s md in-item-color']"
+		 * )); locpopup.click();
+		 * 
+		 * //---select the dubai as state as tamilnadu
+		 * 
+		 * 
+		 * 
+		 * //This Element is inside single shadow DOM. String cssSelectorForHost1 =
+		 * "body > div:nth-child(1) > ion-app:nth-child(1) > ion-modal:nth-child(4) > div:nth-child(1) > div:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > ion-card:nth-child(1) > ion-img:nth-child(1)"
+		 * ; Thread.sleep(1000); SearchContext shadow = driver.findElement(By.
+		 * cssSelector("body > div:nth-child(1) > ion-app:nth-child(1) > ion-modal:nth-child(4) > div:nth-child(1) > div:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > ion-card:nth-child(1) > ion-img:nth-child(1)"
+		 * )).getShadowRoot(); Thread.sleep(1000);
+		 * shadow.findElement(By.cssSelector("img[decoding='async']"));
+		 * 
+		 * WebElement selectdistrict =
+		 * driver.findElement(By.xpath("//input[@id='combo-box-demo']"));
+		 * selectdistrict.click();
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+	}
+
+}

@@ -1,0 +1,67 @@
+package dofy;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class DofyLoginIND extends BaseClass{
+
+@Test
+public void loginind() throws InterruptedException{
+	
+	WebElement LoginButton= driver.findElement(By.xpath("//button[normalize-space()='Login']"));
+	LoginButton.click();
+	System.out.println("Clicking on login button successfully.......");
+	
+
+	WebElement mobnum= driver.findElement(By.xpath("//input[@placeholder='Mobile Number']"));
+	mobnum.sendKeys("9566550756");
+	System.out.println("Mobile number entered successfully.......");
+	
+	JavascriptExecutor js=(JavascriptExecutor)driver;
+	  String cbjspath="return document.querySelector(\"#ion-react-wrapper > div > div > ion-content > ion-grid > form > ion-row > ion-col:nth-child(4) > ion-checkbox\").shadowRoot.querySelector(\"label\")";
+		WebElement checkboxjspath=(WebElement)js.executeScript(cbjspath);
+		checkboxjspath.click();
+		System.out.println("Checkbox is clicked successfully.......");
+		
+		WebElement ctubtn= driver.findElement(By.xpath("//ion-button[@type='submit']"));
+		ctubtn.click();
+		
+		Thread.sleep(2000);
+
+	
+	WebElement otpd1= driver.findElement(By.xpath("//input[@aria-label='Please enter verification code. Digit 1']"));
+	otpd1.sendKeys("0");
+	
+	
+	WebElement otpd2 = driver.findElement(By.xpath("//input[@aria-label='Digit 2']"));
+	otpd2.sendKeys("8");
+	
+	
+	WebElement otpd3 = driver.findElement(By.xpath("//input[@aria-label='Digit 3']"));
+	otpd3.sendKeys("0");
+	
+	
+	WebElement otpd4 = driver.findElement(By.xpath("//input[@aria-label='Digit 4']"));
+	otpd4.sendKeys("8");
+	
+	
+	WebElement otpd5 = driver.findElement(By.xpath("//input[@aria-label='Digit 5']"));
+	otpd5.sendKeys("0");
+	
+	
+	WebElement otpd6 = driver.findElement(By.xpath("//input[@aria-label='Digit 6']"));
+	otpd6.sendKeys("8");
+	
+
+	String vbtn=  "return document.querySelector('#ion-react-wrapper > div > ion-content > ion-grid > ion-row.ls_padding-adjustment.md > ion-col.fp_btn-otp.md > ion-button')";
+	JavascriptExecutor javsc=(JavascriptExecutor)driver;
+	WebElement verifybtn=(WebElement)js.executeScript(vbtn);
+	verifybtn.click();	
+	
+	System.out.println("........................................Verify button clicked and login successfully...");
+}
+	
+}
+

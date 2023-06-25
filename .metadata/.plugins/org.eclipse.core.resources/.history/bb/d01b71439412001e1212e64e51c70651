@@ -1,0 +1,291 @@
+package Test_cases_dofy;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.SearchContext;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Dofy_BaseClass {
+ WebDriver driver;
+
+@BeforeClass
+@SuppressWarnings("deprecation")
+public void OpenBrowser()  {
+		
+		System.setProperty("WebDriver.Chrome.Driver","C:\\Local D\\Testing All\\Drivers & Jars\\chromedriver_win32");
+		driver = new ChromeDriver();
+		
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		//driver.manage().deleteAllCookies();
+		//driver.navigate().to("http://dofy.inventsoftlabs.in/ae_en/home");
+		//driver.navigate().refresh();
+}
+//.....................................Globalsearch....................................................//
+@Test(enabled=false)
+void Globalsearchdofy (){
+	
+		WebElement globalsearch= driver.findElement(By.xpath("//input[@id='globalSearch-input']"));
+		globalsearch.sendKeys("Apple Iphone 11");	
+		
+	}
+
+//....................................LoginPage.......................................................//
+@Test(enabled=false)
+void loginIND() throws InterruptedException {
+	WebElement LoginButton= driver.findElement(By.xpath("//button[normalize-space()='Login']"));
+	LoginButton.click();
+	System.out.println("Clicking on login button successfully.......");
+
+	WebElement mobnum= driver.findElement(By.xpath("//input[@placeholder='Mobile Number']"));
+	mobnum.sendKeys("9566550756");
+	System.out.println("Mobile number entered successfully.......");
+	
+	JavascriptExecutor js=(JavascriptExecutor)driver;
+	  String cbjspath="return document.querySelector(\"#ion-react-wrapper > div > div > ion-content > ion-grid > form > ion-row > ion-col:nth-child(4) > ion-checkbox\").shadowRoot.querySelector(\"label\")";
+		WebElement checkboxjspath=(WebElement)js.executeScript(cbjspath);
+		checkboxjspath.click();
+		System.out.println("Checkbox is clicked successfully.......");
+
+//----click continue button using jspath.........................................unable to locate....
+	Thread.sleep(3000);
+	String ctnuebtn= "return document.querySelector(\"#ion-react-wrapper > div > div > ion-content > ion-grid > form > ion-row > ion-col.mt-2.md > ion-button\").shadowRoot.querySelector(\"button > span\")";
+	WebElement continueloginbtn= (WebElement)js.executeScript(ctnuebtn);
+
+	continueloginbtn.click();
+	System.out.println("Continue button is clicked successfully.......");
+
+
+}
+@SuppressWarnings("unused")
+@Test(enabled=false)
+void loginUAE() throws InterruptedException {
+	WebElement loginbutton = driver.findElement(By.tagName("button"));
+	loginbutton.click();
+System.out.println("Click on the loginbutton successfully..........");
+
+WebElement mobilenum=driver.findElement(By.xpath("//input[@id='outlined-start-adornment']"));
+mobilenum.sendKeys("956655000");
+System.out.println("Entering the mobile number successsfully...........");
+
+//This Element is inside single shadow DOM.
+String cssSelectorForHost1 = ".login_checkbox.login-icon.md.interactive";
+Thread.sleep(1000);
+SearchContext shadow = driver.findElement(By.cssSelector(".login_checkbox.login-icon.md.interactive")).getShadowRoot();
+Thread.sleep(1000);
+shadow.findElement(By.cssSelector("label[for='ion-cb-2']"));
+System.out.println("Clicking the checkbox successsfully...........");
+
+
+	
+}
+//.................................SELL Flow............................................
+@Test(enabled=false)
+@SuppressWarnings("unused")
+void sellflow() throws InterruptedException {
+	WebElement sellbtn=driver.findElement(By.xpath("//*[@id=\"root\"]/ion-app/ion-header/ion-toolbar/ion-grid/ion-row/ion-col[2]/ion-grid/ion-row/ion-col[1]/ion-router-link/ion-text"));
+	sellbtn.click();
+System.out.println("--------------------Sellbutton clicked successfully................................................");
+	WebElement clkphone= driver.findElement(By.xpath("//ion-col[1]//ion-card[1]"));
+	clkphone.click();
+	System.out.println("--------------------Select the phone clicked successfully................................................");
+
+	Thread.sleep(3000);
+	WebElement clkapplebrand=driver.findElement(By.xpath("//ion-grid[@class='aos-init md aos-animate']//ion-row[1]//ion-col[1]"));
+	clkapplebrand.click();
+	//String cssSelectorForHost1 = "ion-img[alt='sellApple']";
+	//Thread.sleep(1000);Xn
+	//SearchContext shadow = driver.findElement(By.cssSelector("ion-img[alt='sellApple']")).getShadowRoot();
+	//Thread.sleep(1000);
+	//shadow.findElement(By.cssSelector("img[alt='sellApple']")).click();
+	System.out.println("--------------------Select the brand clicked successfully................................................");
+
+	// Click the model iphone11....using xpath
+	Thread.sleep(2000);
+	WebElement model=driver.findElement(By.xpath("//ion-text[normalize-space()='Apple iPhone 11']"));
+	model.click();
+	System.out.println("--------------------Select the model clicked successfully................................................");
+
+	// Click the variant ... using xpath
+	Thread.sleep(3000);
+	WebElement variant=driver.findElement(By.xpath("//ion-col[@class='md']//ion-col[2]//ion-card[1]//ion-text[1]"));
+	variant.click();
+	System.out.println("--------------------Select the Variant clicked successfully................................................");
+
+	
+	 
+	/*
+	 * //This Element is inside single shadow DOM. String cssSelectorForHost11 =
+	 * "body > div:nth-child(1) > ion-app:nth-child(1) > ion-split-pane:nth-child(3) > div:nth-child(1) > ion-router-outlet:nth-child(1) > ion-content:nth-child(1) > div:nth-child(1) > ion-content:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(2) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(1) > ion-row:nth-child(3) > ion-col:nth-child(2) > ion-slides:nth-child(1) > div:nth-child(1) > ion-slide:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(2) > ion-col:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(1) > ion-item:nth-child(1) > ion-item:nth-child(2) > ion-button:nth-child(1)"
+	 * ; Thread.sleep(1000); SearchContext shadow1 = driver.findElement(By.
+	 * cssSelector("body > div:nth-child(1) > ion-app:nth-child(1) > ion-split-pane:nth-child(3) > div:nth-child(1) > ion-router-outlet:nth-child(1) > ion-content:nth-child(1) > div:nth-child(1) > ion-content:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(2) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(1) > ion-row:nth-child(3) > ion-col:nth-child(2) > ion-slides:nth-child(1) > div:nth-child(1) > ion-slide:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(2) > ion-col:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(1) > ion-item:nth-child(1) > ion-item:nth-child(2) > ion-button:nth-child(1)"
+	 * )).getShadowRoot(); Thread.sleep(1000);
+	 * shadow1.findElement(By.cssSelector(".button-native")).click();
+	 */
+	
+	
+	
+}
+
+//...........................................SIGNUP SCREEN.................................................
+@Test(enabled=false)
+void signup() throws InterruptedException {
+	WebElement LoginButton= driver.findElement(By.xpath("//button[normalize-space()='Login']"));
+	LoginButton.click();
+	System.out.println("---Click the Login button..............................");
+	Thread.sleep(2000);
+	WebElement signuppage=driver.findElement(By.xpath("//ion-text[normalize-space()='Sign Up here']"));
+	signuppage.click();
+	System.out.println("---Click the SignUp button..............................");
+	
+	
+//---enter the mobile number
+	Thread.sleep(3000);
+
+	WebElement entermn=driver.findElement(By.xpath("//input[@placeholder='Enter Mobile Number']"));
+	entermn.sendKeys("8498784858");
+	System.out.println("//---Enter Mobile number successfully.................................");
+	
+	Thread.sleep(3000);
+	WebElement enteremailid=driver.findElement(By.xpath("//input[@placeholder='email@address.com']"));
+	enteremailid.sendKeys("br@gmail.com");
+	System.out.println("//---Entered email successfully.................................");
+	
+
+	Thread.sleep(3000);
+	WebElement fullname= driver.findElement(By.xpath("//input[@placeholder='John Doe/Jane Doe']"));
+	fullname.sendKeys("BR");
+	System.out.println("//---Enter fullname successfully.................................");
+
+	
+	Thread.sleep(3000);
+	/*
+	 * //This Element is inside single shadow DOM. String cssSelectorForHost1 =
+	 * ".rp_btn-color.ion-color.ion-color-white.md.button.button-full.button-solid.ion-activatable.ion-focusable";
+	 * Thread.sleep(1000); SearchContext shadow = driver.findElement(By.cssSelector(
+	 * ".rp_btn-color.ion-color.ion-color-white.md.button.button-full.button-solid.ion-activatable.ion-focusable"
+	 * )).getShadowRoot(); Thread.sleep(1000);
+	 * shadow.findElement(By.cssSelector(".button-inner"));
+	 */
+	WebElement ctnbtn= driver.findElement(By.xpath("//ion-button[@type='submit']"));
+	ctnbtn.click();
+	System.out.println("//---click the continue button successfully.................................");
+
+	
+//OTP screen...
+	Thread.sleep(2000);
+	WebElement otpd1= driver.findElement(By.xpath("//*[@id=\"ion-react-wrapper\"]/div/ion-grid/ion-row[2]/ion-col[4]/div/div[1]/input"));
+	otpd1.sendKeys("0");
+	
+	Thread.sleep(2000);
+	WebElement otpd2 = driver.findElement(By.xpath("//input[@aria-label='Digit 2']"));
+	otpd2.sendKeys("8");
+	
+	Thread.sleep(2000);
+	WebElement otpd3 = driver.findElement(By.xpath("//input[@aria-label='Digit 3']"));
+	otpd3.sendKeys("0");
+	
+	Thread.sleep(2000);
+	WebElement otpd4 = driver.findElement(By.xpath("//input[@aria-label='Digit 4']"));
+	otpd4.sendKeys("8");
+	
+	Thread.sleep(2000);
+	WebElement otpd5 = driver.findElement(By.xpath("//input[@aria-label='Digit 5']"));
+	otpd5.sendKeys("0");
+	
+	Thread.sleep(2000);
+	WebElement otpd6 = driver.findElement(By.xpath("//input[@aria-label='Digit 6']"));
+	otpd6.sendKeys("8");
+	
+	
+	Thread.sleep(3000);
+}
+@SuppressWarnings("unlikely-arg-type")
+@Test
+void uaesellflow() throws InterruptedException, AWTException  {
+	
+	driver.navigate().to("http://dofy.inventsoftlabs.in/ae_en/");
+	driver.navigate().refresh();
+
+	
+	Thread.sleep(3000);
+	WebElement uaesellbtn=driver.findElement(By.xpath("//ion-text[normalize-space()='SELL']"));
+	uaesellbtn.click();
+	Thread.sleep(3000);
+	WebElement phonetype= driver.findElement(By.xpath("//ion-col[1]//ion-card[1]"));
+	phonetype.click();
+	Thread.sleep(3000);
+
+	JavascriptExecutor js=(JavascriptExecutor)driver;
+	String brandapple="return document.querySelector(\"body > div:nth-child(1) > ion-app:nth-child(1) > ion-split-pane:nth-child(3) > div:nth-child(1) > ion-router-outlet:nth-child(1) > ion-content:nth-child(1) > div:nth-child(1) > div:nth-child(1) > ion-content:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(2) > ion-col:nth-child(2) > ion-grid:nth-child(1) > ion-row:nth-child(2) > ion-col:nth-child(1) > ion-card:nth-child(1) > ion-card-content:nth-child(1)\")";
+	WebElement apple=(WebElement)js.executeScript(brandapple);
+	apple.click();
+	Thread.sleep(3000);
+	
+	JavascriptExecutor js1=(JavascriptExecutor)driver;
+	String modelapple="return document.querySelector(\"body > div:nth-child(1) > ion-app:nth-child(1) > ion-split-pane:nth-child(3) > div:nth-child(1) > ion-router-outlet:nth-child(1) > ion-content:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ion-content:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(2) > ion-col:nth-child(2) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(2) > ion-card:nth-child(1)\")";
+	WebElement mapple=(WebElement)js1.executeScript(modelapple);
+	mapple.click();
+	String urltitle=driver.getCurrentUrl();
+	System.out.println("The title of the url is"+urltitle);
+	
+	Thread.sleep(3000);
+
+	String variant256gb= "return document.querySelector(\"body > div:nth-child(1) > ion-app:nth-child(1) > ion-split-pane:nth-child(3) > div:nth-child(1) > ion-router-outlet:nth-child(1) > ion-content:nth-child(1) > div:nth-child(1) > div:nth-child(3) > ion-content:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(2) > ion-grid:nth-child(1) > ion-row:nth-child(3) > ion-col:nth-child(4) > ion-card:nth-child(1)\")";
+	JavascriptExecutor js2=(JavascriptExecutor)driver;
+	WebElement vapple=(WebElement)js2.executeScript(variant256gb);
+	
+	
+	Thread.sleep(3000);
+	
+	String parentwindow =driver.getWindowHandle();
+	vapple.click();
+	
+	Set<String> popupwindow = driver.getWindowHandles();
+	for(String popup : popupwindow)
+	{
+		driver.switchTo().window(popup); 
+		
+		if (driver.getPageSource().equals(popupwindow)) {
+			
+			Thread.sleep(3000);
+			WebElement locpop=driver.findElement(By.xpath("//input[@id='combo-box-demo']"));
+			locpop.sendKeys("Naif");
+			locpop.sendKeys(Keys.ENTER);
+		}
+	}
+	driver.switchTo().window(parentwindow);
+	
+	System.out.println(".....................We have entering the screening questions......................");
+	//This Element is inside single shadow DOM.
+	@SuppressWarnings("unused")
+	String cssSelectorForHost1 = "body > div:nth-child(1) > ion-app:nth-child(1) > ion-split-pane:nth-child(3) > div:nth-child(1) > ion-router-outlet:nth-child(1) > ion-content:nth-child(1) > div:nth-child(1) > div:nth-child(3) > ion-content:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(2) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(1) > ion-row:nth-child(3) > ion-col:nth-child(2) > ion-slides:nth-child(1) > div:nth-child(1) > ion-slide:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(2) > ion-col:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(1) > ion-item:nth-child(1) > ion-item:nth-child(2) > ion-button:nth-child(1)";
+	Thread.sleep(1000);
+	SearchContext shadow = driver.findElement(By.cssSelector("body > div:nth-child(1) > ion-app:nth-child(1) > ion-split-pane:nth-child(3) > div:nth-child(1) > ion-router-outlet:nth-child(1) > ion-content:nth-child(1) > div:nth-child(1) > div:nth-child(3) > ion-content:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(2) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(1) > ion-row:nth-child(3) > ion-col:nth-child(2) > ion-slides:nth-child(1) > div:nth-child(1) > ion-slide:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(2) > ion-col:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(1) > ion-item:nth-child(1) > ion-item:nth-child(2) > ion-button:nth-child(1)")).getShadowRoot();
+	Thread.sleep(1000);
+	shadow.findElement(By.cssSelector(".button-native")).click();
+	
+	Thread.sleep(3000);
+	
+}
+
+@AfterClass
+public void CloseBrowser() 
+        {
+			driver.close();
+		}		
+
+}

@@ -1,0 +1,154 @@
+package Test_cases_dofy;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Sellfunctionality {
+
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+	//---- Opening the chrome browser...
+		System.setProperty("driver.chrome.driver", "C:\\Local D\\chromedriver_win32.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	//---Opening the Url...
+		driver.get("http://dofy.inventsoftlabs.in/in_en/");
+	
+	//---From homepage click the sell button	
+		Thread.sleep(3000);
+		WebElement sellbtn=driver.findElement(By.xpath("//*[@id=\"root\"]/ion-app/ion-header/ion-toolbar/ion-grid/ion-row/ion-col[2]/ion-grid/ion-row/ion-col[1]/ion-router-link/ion-text"));
+		sellbtn.click();
+		
+		//driver.manage().timeouts().implicitlyWait(30,TIMEUNITS.SECONDS);
+	//---Click the phone...
+		Thread.sleep(3000);
+		WebElement clkphone= driver.findElement(By.xpath("//ion-col[1]//ion-card[1]"));
+		clkphone.click();
+		
+	//---Click the Brand apple...
+	/*	Thread.sleep(3000);
+		
+		*/
+		
+		//This Element is inside single shadow DOM.
+	// Click the brand by using selectorhub cssselector...
+		Thread.sleep(2000);
+		String cssSelectorForHost1 = "ion-img[alt='sellApple']";
+		Thread.sleep(1000);
+		SearchContext shadow = driver.findElement(By.cssSelector("ion-img[alt='sellApple']")).getShadowRoot();
+		Thread.sleep(1000);
+		shadow.findElement(By.cssSelector("img[alt='sellApple']")).click();
+		
+		// Click the model iphone11....using xpath
+		Thread.sleep(2000);
+		WebElement model=driver.findElement(By.xpath("//ion-text[normalize-space()='Apple iPhone 11']"));
+		model.click();
+		
+		// Click the variant ... using xpath
+		Thread.sleep(3000);
+		WebElement variant=driver.findElement(By.xpath("//ion-col[@class='md']//ion-col[2]//ion-card[1]//ion-text[1]"));
+		variant.click();
+		
+		
+		
+		//Screening Questions using cssselector by selectorhub 
+	//	First screening question... click YES.... 
+		//This Element is inside single shadow DOM.
+		String cssSelectorForHost11 = "body > div:nth-child(1) > ion-app:nth-child(1) > ion-split-pane:nth-child(3) > div:nth-child(1) > ion-router-outlet:nth-child(1) > ion-content:nth-child(1) > div:nth-child(1) > ion-content:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(2) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(1) > ion-row:nth-child(3) > ion-col:nth-child(2) > ion-slides:nth-child(1) > div:nth-child(1) > ion-slide:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(2) > ion-col:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(1) > ion-item:nth-child(1) > ion-item:nth-child(2) > ion-button:nth-child(1)";
+		Thread.sleep(1000);
+		SearchContext shadow1 = driver.findElement(By.cssSelector("body > div:nth-child(1) > ion-app:nth-child(1) > ion-split-pane:nth-child(3) > div:nth-child(1) > ion-router-outlet:nth-child(1) > ion-content:nth-child(1) > div:nth-child(1) > ion-content:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(2) > ion-grid:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(1) > ion-row:nth-child(3) > ion-col:nth-child(2) > ion-slides:nth-child(1) > div:nth-child(1) > ion-slide:nth-child(1) > ion-grid:nth-child(1) > ion-row:nth-child(2) > ion-col:nth-child(1) > ion-row:nth-child(1) > ion-col:nth-child(1) > ion-item:nth-child(1) > ion-item:nth-child(2) > ion-button:nth-child(1)")).getShadowRoot();
+		Thread.sleep(1000);
+		shadow1.findElement(By.cssSelector(".button-native")).click();
+		
+		
+		
+		
+		
+		driver.close();
+		
+	}
+
+}
